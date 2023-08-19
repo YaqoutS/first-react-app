@@ -1,10 +1,12 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
-  padding: 6rem;
+  padding: 2rem;
   min-height: 100vh;
+  background-color: white;
+  color: black;
 }
 
 .description {
@@ -226,4 +228,34 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+
+/* if we say sth like .main button then the style will be applied to all button nested inside the main class element */
+ button.clickMe{
+  color: white;
+  margin-top: 2%;
+  padding: 5px;
+  font-size: large;
+  background-color: #3022c9;
+  border-radius: 7%;
+}
+
+button.clickMe:hover {
+  background-color: peru;
+}
+
+@media (min-width: 600px) {
+  button.clickMe{
+    background-color: peru;
+  }
+}
+
+.blackBG {
+  background-color: black;
+  color: white;
+}
+
+.bold {
+  font-weight: bold;
 }
