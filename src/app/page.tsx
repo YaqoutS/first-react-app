@@ -2,8 +2,9 @@
 
 import styles from "./page.module.css";
 import { ChangeEvent, useState } from "react";
-import Person from "@/components/Person";
-import PersonList from "@/components/PersonList";
+import PersonList from "@/components/PersonList/PersonList";
+import MainHeader from "@/components/MainHeader/MainHeader";
+import Link from "next/link";
 
 type Person = {
   id: number;
@@ -31,6 +32,8 @@ export default function Home() {
 
   const [showPersons, setShowPersons] = useState(true);
 
+  const [showForm, setShowForm] = useState(false);
+
   const showHidePersons = () => {
     setShowPersons(!showPersons);
   };
@@ -56,20 +59,49 @@ export default function Home() {
     setPersons(newList);
   };
 
+  const HideFormHandler = () => setShowForm(false);
+
+  const showFormHandler = () => setShowForm(true);
+
+  const AddPersonHandler = (personName: string, personAge: number) => {
+    const personId =
+      persons.length !== 0 ? persons[persons.length - 1].id + 1 : 0;
+
+    const newPerson: Person = {
+      id: personId,
+      name: personName,
+      age: personAge,
+    };
+
+    setPersons((existingPersons) => {
+      const newPersonsList: Array<Person> = [...existingPersons, newPerson];
+      return newPersonsList;
+    });
+    setShowForm(false);
+  };
+
   const mainClasses = [];
   mainClasses.push(styles.main);
 
   if (showPersons) {
     headerStyle.backgroundColor = "peru";
-    mainClasses.push(styles.blackBG);
+    mainClasses.push(styles.bold);
   }
 
   return (
     <main className={mainClasses.join(" ")}>
-      <h1 style={headerStyle} onClick={showHidePersons}>
-        Persons
-      </h1>
-      This is my first React app
+      <MainHeader onAddPerson={showFormHandler}></MainHeader>
+
+      <button
+        type="button"
+        className={styles.myButton}
+        onClick={showHidePersons}
+      >
+        {showPersons ? "Hide Persons" : "Show Persons"}
+      </button>
+
+      <Link href="/test">Go to the test page</Link>
+
       <PersonList
         persons={persons}
         showPersons={showPersons}
@@ -78,14 +110,17 @@ export default function Home() {
           id: number
         ) => nameChangedHandler(event, id)}
         deleteHandler={(personId) => deleteHandler(personId)}
+        showForm={showForm}
+        onFormClose={HideFormHandler}
+        onAddPerson={AddPersonHandler}
       />
-      <button
-        type="button"
-        className={styles.clickMe}
-        onClick={showHidePersons}
-      >
-        Show/ Hide
-      </button>
+
+      {persons.length === 0 && (
+        <div style={{ textAlign: "center" }}>
+          <h2 style={{ margin: "10px 0" }}>There are no persons yet.</h2>
+          <p>Start adding some!</p>
+        </div>
+      )}
     </main>
   );
 }

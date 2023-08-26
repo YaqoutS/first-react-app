@@ -1,0 +1,23 @@
+.PersonList {
+    width: 60%;
+    /* margin: 20px; */
+    /* background-color: antiquewhite; */
+    /* display: inline;
+    float: left;
+    align-items: flex-start; */
+    
+    /* list-style: none;
+    max-width: 50rem;
+    margin: 1rem auto;
+    padding: 1rem 0;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 30%);
+    justify-content: center; */
+}
+
+@media (min-width: 800px) {
+    .PersonList {
+        width: 30%;
+    }
+}

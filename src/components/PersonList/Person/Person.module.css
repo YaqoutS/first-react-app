@@ -1,10 +1,10 @@
 .Person {
     font: 100 larger;
-    width: auto;
-    margin: 20px;
+    width: 100%;
+    margin: 20px 0;
+    padding: 15px;
     border: 1px solid #eee;
     box-shadow: 2px 2px 2px 3px #3022c9;
-    padding: 16px;
     text-align: center;
     border-radius: 5%;
     /* float: left; */
@@ -13,13 +13,24 @@
     align-items: flex-start; */
 }
 
-button.delete:hover{
-    background-color: red;
-    color: white;
+button.delete {
+    height: 25px;
+    width: 55px;
+    border: 0 gray;
+    border-radius: 15%;
+    margin: 2% 0 0 0;
+    /* padding: 0.5% 1% */
+    
 }
 
-@media (min-width: 500) {
+button.delete:hover{
+    background-color: rgb(253, 57, 57);
+    color: white;
+    border-color: red;
+}
+
+/* @media (min-width: 500px) {
     .Person {
         width: 60%;
     }
-}
+} */

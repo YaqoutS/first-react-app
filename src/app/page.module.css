@@ -231,25 +231,29 @@
 }
 
 
-/* if we say sth like .main button then the style will be applied to all button nested inside the main class element */
- button.clickMe{
-  color: white;
-  margin-top: 2%;
-  padding: 5px;
-  font-size: large;
-  background-color: #3022c9;
+/* if we say sth like .main button then the style will be applied to all button nested inside a main class element */
+ button.myButton{
+  color: #edecff;
+  margin-bottom: 15px;
+  padding: 7px;
+  font-size: medium;
+  background-color: #382bce;
   border-radius: 7%;
 }
 
-button.clickMe:hover {
-  background-color: peru;
+button.myButton:hover {
+  background-color: #3022c9;
+  color: white
 }
 
-@media (min-width: 600px) {
-  button.clickMe{
+/* @media (min-width: 600px) {
+  button.myButton{
     background-color: peru;
   }
-}
+  button.myButton:hover {
+    background-color: #3022c9;
+  }
+} */
 
 .blackBG {
   background-color: black;
@@ -257,5 +261,5 @@ button.clickMe:hover {
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: 500;
 }

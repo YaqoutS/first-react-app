@@ -18,19 +18,15 @@ export default function Person(props: Props) {
       <input
         type="text"
         style={{
-          margin: "2%",
-          padding: "0.5% 1%",
+          margin: "4%",
+          padding: "1%",
           backgroundColor: "white",
           color: "black",
         }}
         onChange={props.onChange}
         value={props.name}
       />
-      <button
-        className={styles.delete}
-        style={{ margin: "2%", padding: "0.5% 1%" }}
-        onClick={props.onDelete}
-      >
+      <button className={styles.delete} onClick={props.onDelete}>
         Delete
       </button>
     </div>
